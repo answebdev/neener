@@ -1,9 +1,28 @@
-export default function PostPage({ params }) {
+import client from '../../../client';
+
+export async function generateStaticParams() {
+  const slugs = await client.fetch(
+    `*[_type == "post" && defined(slug.current)][].slug.current`
+  );
+  return slugs.map((slug) => ({ slug }));
+}
+
+export default async function PostPage({ params }) {
   const { slug } = params;
+
+  const post = await client.fetch(
+    `*[_type == "post" && slug.current == $slug][0]`,
+    { slug }
+  );
+
+  if (!post) {
+    return <p>Post not found</p>;
+  }
 
   return (
     <article>
-      <h1>{slug}</h1>
+      <h1>{post.title}</h1>
+      {/* Render your post content */}
     </article>
   );
 }
