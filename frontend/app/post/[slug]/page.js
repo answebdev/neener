@@ -1,3 +1,4 @@
+import { PortableText } from '@portabletext/react';
 import client from '../../../client';
 
 export async function generateStaticParams() {
@@ -22,7 +23,7 @@ export default async function PostPage({ params }) {
   return (
     <article>
       <h1>{post.title}</h1>
-      {/* Render your post content */}
+      <PortableText value={post.body} />
     </article>
   );
 }
