@@ -3,6 +3,33 @@ import client from '../../../client';
 import Image from 'next/image';
 import { urlFor } from '../../../lib/sanityImageUrl';
 
+// Define how Portable Text should render custom types like images
+const ptComponents = {
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset?._ref) {
+        return null;
+      }
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          alt={value.alt || ' '}
+          loading='lazy'
+          src={urlFor(value)
+            .width(600)
+            .height(400)
+            .fit('max')
+            .auto('format')
+            .url()}
+          width={600}
+          height={400}
+          style={{ margin: '1em 0', maxWidth: '100%' }}
+        />
+      );
+    },
+  },
+};
+
 export async function generateStaticParams() {
   const slugs = await client.fetch(
     `*[_type == "post" && defined(slug.current)][].slug.current`
@@ -11,8 +38,7 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage(props) {
-  const params = await props.params;
-  const slug = params.slug;
+  const { slug } = await props.params;
 
   const post = await client.fetch(
     `*[_type == "post" && slug.current == $slug][0]{
@@ -34,7 +60,7 @@ export default async function PostPage(props) {
       <h1>{post.title}</h1>
       <p>By {post.authorName}</p>
 
-      {post.authorImage && post.authorImage.asset && (
+      {post.authorImage?.asset && (
         <Image
           src={urlFor(post.authorImage).width(100).height(100).url()}
           alt={`Photo of ${post.authorName}`}
@@ -44,7 +70,7 @@ export default async function PostPage(props) {
         />
       )}
 
-      {post.categories && post.categories.length > 0 && (
+      {post.categories?.length > 0 && (
         <ul>
           <strong>Posted in:</strong>
           {post.categories.map((category) => (
@@ -53,7 +79,8 @@ export default async function PostPage(props) {
         </ul>
       )}
 
-      <PortableText value={post.body} />
+      {/* Render Portable Text content with custom image renderer */}
+      <PortableText value={post.body} components={ptComponents} />
     </article>
   );
 }
