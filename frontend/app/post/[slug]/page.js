@@ -1,6 +1,7 @@
 import { PortableText } from '@portabletext/react';
 import client from '../../../client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { urlFor } from '../../../lib/sanityImageUrl';
 
 // Define how Portable Text should render custom types like images
@@ -81,6 +82,19 @@ export default async function PostPage(props) {
 
       {/* Render Portable Text content with custom image renderer */}
       <PortableText value={post.body} components={ptComponents} />
+
+      <p style={{ marginTop: '2em' }}>
+        <Link
+          href='/'
+          style={{
+            color: 'blue',
+            textDecoration: 'underline',
+            fontSize: '1.2rem',
+          }}
+        >
+          Back to Home
+        </Link>
+      </p>
     </article>
   );
 }
