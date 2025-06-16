@@ -31,6 +31,25 @@ const ptComponents = {
   },
 };
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+
+  const artist = await client.fetch(
+    `*[_type == "artist" && slug.current == $slug][0]{
+      artistName
+    }`,
+    { slug }
+  );
+
+  return {
+    title: 'NX3 | ' + artist?.artistName || 'Artist Page',
+    description: 'A site for coding tutorial guides.',
+    icons: {
+      icon: '/favicon.ico',
+    },
+  };
+}
+
 export async function generateStaticParams() {
   const slugs = await client.fetch(
     `*[_type == "artist" && defined(slug.current)][].slug.current`
