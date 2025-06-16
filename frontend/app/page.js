@@ -16,7 +16,7 @@ export default async function HomePage() {
         {posts.map((post) => (
           <li key={post.slug.current} style={{ marginBottom: '1rem' }}>
             <Link
-              href={`/post/${post.slug.current}`}
+              href={`/artist/${post.slug.current}`}
               style={{
                 color: 'blue',
                 textDecoration: 'underline',
