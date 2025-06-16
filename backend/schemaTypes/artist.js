@@ -1,13 +1,13 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'artist',
+  title: 'Artist',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'artistName',
+      title: 'Artist Name',
       type: 'string',
     }),
     defineField({
@@ -15,7 +15,7 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'artistName',
         maxLength: 96,
       },
     }),
@@ -53,7 +53,7 @@ export default defineType({
 
   preview: {
     select: {
-      title: 'title',
+      title: 'artistName',
       author: 'author.name',
       media: 'mainImage',
     },

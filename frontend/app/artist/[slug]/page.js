@@ -17,13 +17,13 @@ const ptComponents = {
           alt={value.alt || ' '}
           loading='lazy'
           src={urlFor(value)
-            .width(600)
+            .width(400)
             .height(400)
             .fit('max')
             .auto('format')
             .url()}
-          width={600}
-          height={400}
+          // width={600}
+          // height={400}
           style={{ margin: '1em 0', maxWidth: '100%' }}
         />
       );
@@ -33,55 +33,57 @@ const ptComponents = {
 
 export async function generateStaticParams() {
   const slugs = await client.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
+    `*[_type == "artist" && defined(slug.current)][].slug.current`
   );
   return slugs.map((slug) => ({ slug }));
 }
 
-export default async function PostPage(props) {
+export default async function ArtistPage(props) {
   const { slug } = await props.params;
 
-  const post = await client.fetch(
-    `*[_type == "post" && slug.current == $slug][0]{
-      title,
+  const artist = await client.fetch(
+    `*[_type == "artist" && slug.current == $slug][0]{
+      artistName,
       body,
       "authorName": author->name,
       "authorImage": author->image,
-      "categories": categories[]->title
+      "categories": categories[]->artistName
     }`,
     { slug }
   );
 
-  if (!post) {
-    return <p>Post not found</p>;
+  if (!artist) {
+    return <p>Artist not found</p>;
   }
 
   return (
     <article>
-      <h1>{post.title}</h1>
-      <p>By {post.authorName}</p>
+      <h1>{artist.artistName}</h1>
+      {/* <p>By {artist.authorName}</p> */}
 
-      {post.authorImage?.asset && (
+      <br />
+
+      {artist.authorImage?.asset && (
         <Image
-          src={urlFor(post.authorImage).width(100).height(100).url()}
-          alt={`Photo of ${post.authorName}`}
+          src={urlFor(artist.authorImage).width(100).height(100).url()}
+          alt={`Photo of ${artist.authorName}`}
           width={100}
           height={100}
           style={{ borderRadius: '50%' }}
         />
       )}
 
-      {post.categories?.length > 0 && (
+      {artist.categories?.length > 0 && (
         <ul>
-          <strong>Posted in:</strong>
-          {post.categories.map((category) => (
+          <strong>artisted in:</strong>
+          {artist.categories.map((category) => (
             <li key={category}>{category}</li>
           ))}
         </ul>
       )}
 
       {/* Render Portable Text content with custom image renderer */}
-      <PortableText value={post.body} components={ptComponents} />
+      <PortableText value={artist.body} components={ptComponents} />
 
       <p style={{ marginTop: '2em' }}>
         <Link
