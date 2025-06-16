@@ -22,8 +22,6 @@ const ptComponents = {
             .fit('max')
             .auto('format')
             .url()}
-          // width={600}
-          // height={400}
           style={{ margin: '1em 0', maxWidth: '100%' }}
         />
       );
@@ -43,7 +41,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: 'NX3 | ' + artist?.artistName || 'Artist Page',
-    description: 'A site for coding tutorial guides.',
+    description: 'NX3 Label Website.',
     icons: {
       icon: '/favicon.ico',
     },
@@ -57,7 +55,7 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export default async function ArtistPage(props) {
+const ArtistPage = async (props) => {
   const { slug } = await props.params;
 
   const artist = await client.fetch(
@@ -78,7 +76,6 @@ export default async function ArtistPage(props) {
   return (
     <article>
       <h1>{artist.artistName}</h1>
-      {/* <p>By {artist.authorName}</p> */}
 
       <br />
 
@@ -101,7 +98,6 @@ export default async function ArtistPage(props) {
         </ul>
       )}
 
-      {/* Render Portable Text content with custom image renderer */}
       <PortableText value={artist.body} components={ptComponents} />
 
       <p style={{ marginTop: '2em' }}>
@@ -118,4 +114,6 @@ export default async function ArtistPage(props) {
       </p>
     </article>
   );
-}
+};
+
+export default ArtistPage;

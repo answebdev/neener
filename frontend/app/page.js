@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import client from '../client';
 
-export default async function HomePage() {
+const HomePage = async () => {
   const artists = await client.fetch(
     `*[_type == "artist" && defined(slug.current)] | order(_createdAt desc){
       artistName,
@@ -30,4 +30,6 @@ export default async function HomePage() {
       </ul>
     </main>
   );
-}
+};
+
+export default HomePage;
