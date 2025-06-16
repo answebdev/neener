@@ -1,6 +1,16 @@
 import Link from 'next/link';
 import client from '../client';
 
+export const generateMetadata = async () => {
+  return {
+    title: 'NX3',
+    description: 'NX3 Label Website Home Page.',
+    icons: {
+      icon: '/favicon.ico',
+    },
+  };
+};
+
 const HomePage = async () => {
   const artists = await client.fetch(
     `*[_type == "artist" && defined(slug.current)] | order(_createdAt desc){
