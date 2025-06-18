@@ -1,0 +1,19 @@
+/* Sticky (But Not Fixed) Footer */
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  background-color: var(--footerColor);
+  text-align: center;
+}
+/* ========================= */
+
+.footerText {
+  font-family: var(--headerFontFamily);
+  color: var(--FooterTextColor);
+  margin-top: 5px;
+  font-size: 14.5px;
+  letter-spacing: 1px;
+}

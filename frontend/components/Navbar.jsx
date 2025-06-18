@@ -3,19 +3,34 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className={styles.nav}>
-      <ul className={styles.menu}>
-        <li>
-          <Link href='/'>Home</Link>
+    <header className={styles.navbar}>
+      <div className={`${styles.navbarTitle} ${styles.navbarItem}`}>
+        <div>
+          <li className={styles.navbarItem}>
+            <Link className={styles.brandLink} href='/'>
+              NX3
+            </Link>
+          </li>
+        </div>
+      </div>
+      <ul className={styles.ulElement}>
+        <li className={styles.navbarItem}>
+          <Link className={styles.navLink} href='/'>
+            Home
+          </Link>
         </li>
-        <li>
-          <Link href='/about'>About</Link>
+        <li className={styles.navbarItem}>
+          <Link className={styles.navLink} href='/about'>
+            About
+          </Link>
         </li>
-        <li>
-          <Link href='/contact'>Contact</Link>
+        <li className={styles.navbarItem}>
+          <Link className={styles.navLink} href='/contact'>
+            Contact
+          </Link>
         </li>
       </ul>
-    </nav>
+    </header>
   );
 };
 

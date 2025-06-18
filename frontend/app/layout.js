@@ -3,7 +3,7 @@ import './globals.css';
 
 // Import components
 import Navbar from '../components/Navbar';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 
 // Load Google fonts
 const geistSans = Geist({
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Navbar />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
