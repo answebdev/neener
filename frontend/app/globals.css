@@ -7,8 +7,21 @@
   --navbarTextColor: #ffffff;
   --navbarHoverBorderColor: #ffffff;
   --footerColor: #6150c9;
-  --FooterTextColor: #ffffff;
+  --footerTextColor: #ffffff;
 }
+
+/* Styles for Sticky Footer */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+/* End Styles for Sticky Footer */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -29,6 +42,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Need for footer: */
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  /* End Need for footer */
 }
 
 * {

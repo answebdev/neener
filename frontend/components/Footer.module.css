@@ -12,7 +12,7 @@
 
 .footerText {
   font-family: var(--headerFontFamily);
-  color: var(--FooterTextColor);
+  color: var(--footerTextColor);
   margin-top: 5px;
   font-size: 14.5px;
   letter-spacing: 1px;
