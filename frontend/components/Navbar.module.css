@@ -1,0 +1,10 @@
+.nav {
+  background-color: #333;
+  padding: 1rem;
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
