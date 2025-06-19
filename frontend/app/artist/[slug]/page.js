@@ -26,6 +26,20 @@ const ptComponents = {
         />
       );
     },
+    iframeEmbed: ({ value }) => {
+      return (
+        <iframe
+          src={value.url}
+          style={{
+            border: 0,
+            width: '55%',
+            height: '120px',
+          }}
+          loading='lazy'
+          seamless
+        />
+      );
+    },
   },
 };
 

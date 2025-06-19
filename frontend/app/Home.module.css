@@ -1,0 +1,50 @@
+.mainContainer {
+  padding: 4rem;
+  font-family: Arial, sans-serif;
+}
+
+.artistContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* add spacing between items if you want */
+  justify-content: space-between;
+}
+
+.artistCard {
+  width: calc(33.333% - 1rem); /* 3 items per row, minus gap */
+}
+
+.imageDiv {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.artistLink {
+  padding: 15px 0;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 768px) {
+  .artistCard {
+    width: 100%;
+  }
+}
+
+/* @media screen and (max-width: 980px) {
+  .imageDiv {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imageDiv {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .imageDiv {
+    width: 100%;
+  }
+} */

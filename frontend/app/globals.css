@@ -1,8 +1,8 @@
 :root {
   /* --background: #ffffff;
   --foreground: #171717; */
-  --headerFontFamily: var(--sans_pro-font);
-  --mainTextFontFamily: var(--serif_pro-font);
+  /* --headerFontFamily: var(--sans_pro-font);
+  --mainTextFontFamily: var(--serif_pro-font); */
   --navbarColor: #6150c9;
   --navbarTextColor: #ffffff;
   --navbarHoverBorderColor: #ffffff;
@@ -25,8 +25,10 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: #0a0a0a;
+    --foreground: #ededed; */
+    --background: #ededed;
+    --foreground: #0a0a0a;
   }
 }
 
