@@ -3,6 +3,7 @@ import client from '../../../client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { urlFor } from '../../../lib/sanityImageUrl';
+import styles from './ArtistPage.module.css';
 
 // Define how Portable Text should render custom types like images
 const ptComponents = {
@@ -28,16 +29,21 @@ const ptComponents = {
     },
     iframeEmbed: ({ value }) => {
       return (
-        <iframe
-          src={value.url}
-          style={{
-            border: 0,
-            width: '55%',
-            height: '120px',
-          }}
-          loading='lazy'
-          seamless
-        />
+        // Player Not Centered:
+        <div style={{ maxWidth: '700px', margin: '2em 0', width: '100%' }}>
+          {/* // Player Centered: */}
+          {/* <div style={{ maxWidth: '700px', margin: '2em auto', width: '100%' }}> */}
+          <iframe
+            src={value.url}
+            style={{
+              border: 0,
+              width: '100%',
+              height: '120px',
+            }}
+            loading='lazy'
+            seamless
+          />
+        </div>
       );
     },
   },
@@ -88,7 +94,7 @@ const ArtistPage = async (props) => {
   }
 
   return (
-    <article>
+    <article className={styles.container}>
       <h1>{artist.artistName}</h1>
 
       <br />

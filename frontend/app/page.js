@@ -27,10 +27,7 @@ const HomePage = async () => {
     <main className={styles.mainContainer}>
       <h1 style={{ marginBottom: '1.5rem' }}>Artists</h1>
       <div className={styles.artistContainer}>
-        {/* <div> */}
-        {/* <ul style={{ listStyle: 'none', padding: 0 }}> */}
         {artists.map((artist) => (
-          // <li key={artist.slug.current} style={{ marginBottom: '1rem' }}>
           <div key={artist.slug.current} className={styles.artistCard}>
             <Link
               href={`/artist/${artist.slug.current}`}
@@ -38,11 +35,10 @@ const HomePage = async () => {
                 color: 'blue',
                 textDecoration: 'none',
                 textTransform: 'uppercase',
-                fontSize: '1.2rem',
+                fontSize: '1.0rem',
               }}
             >
               <div className={styles.imageDiv}>
-                {/* <div> */}
                 <Image
                   src={urlFor(artist.mainImage).width(400).url()}
                   alt={artist.artistName}
@@ -50,34 +46,11 @@ const HomePage = async () => {
                   sizes='25vw'
                   style={{ objectFit: 'cover' }}
                 />
-
-                {/* <Image
-                  src={urlFor(artist.mainImage).width(300).height(300).url()}
-                  alt={artist.artistName}
-                  width={300}
-                  height={300}
-                /> */}
-
-                {/* <Image
-                  src={urlFor(artist.mainImage).width(800).url()} // Fetch a high-res version
-                  alt={artist.artistName}
-                  width={800}
-                  height={800}
-                  sizes='(max-width: 768px) 100vw, 300px'
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    objectFit: 'cover',
-                  }}
-                /> */}
               </div>
               <div className={styles.artistLink}>{artist.artistName}</div>
             </Link>
           </div>
-          // </li>
         ))}
-        {/* </ul> */}
-        {/* </div> */}
       </div>
     </main>
   );
