@@ -5,6 +5,7 @@
   background: var(--navbarColor);
   color: var(--navbarTextColor);
   font-family: var(--headerFontFamily);
+  padding: 8px;
 }
 
 .navbar .ulElement {
