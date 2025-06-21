@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { PortableText } from '@portabletext/react';
 import client from '../../../client';
 import Image from 'next/image';
