@@ -34,11 +34,23 @@ const ptComponents = {
           {/* // Player Centered: */}
           {/* <div style={{ maxWidth: '700px', margin: '2em auto', width: '100%' }}> */}
           <iframe
+            className={styles.desktopPlayer}
             src={value.url}
             style={{
               border: 0,
               width: '100%',
               height: '120px',
+            }}
+            loading='lazy'
+            seamless
+          />
+          <iframe
+            className={styles.mobilePlayer}
+            src={value.url.replace('size=large', 'size=medium')}
+            style={{
+              width: '100%',
+              height: '120px',
+              border: '0',
             }}
             loading='lazy'
             seamless

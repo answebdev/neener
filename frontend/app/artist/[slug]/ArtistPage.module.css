@@ -1,3 +1,19 @@
 .container {
   padding: 6em;
 }
+
+.mobilePlayer {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 2em;
+  }
+  .desktopPlayer {
+    display: none;
+  }
+  .mobilePlayer {
+    display: block;
+  }
+}
