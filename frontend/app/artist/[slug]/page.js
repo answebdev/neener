@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic'; // Enable SSR
 
 import { PortableText } from '@portabletext/react';
 import client from '../../../client';
