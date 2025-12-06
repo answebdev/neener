@@ -11,15 +11,15 @@
   "dependencies": {
     "@portabletext/react": "^5.0.0",
     "@sanity/client": "^7.13.1",
-    "@sanity/image-url": "^2.0.1",
+    "@sanity/image-url": "^2.0.2",
     "next": "^16.0.7",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
-    "baseline-browser-mapping": "^2.8.32",
+    "baseline-browser-mapping": "^2.9.4",
     "eslint": "^9.39.1",
-    "eslint-config-next": "^16.0.6"
+    "eslint-config-next": "^16.0.7"
   }
 }
