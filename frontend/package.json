@@ -13,13 +13,13 @@
     "@sanity/client": "^7.13.2",
     "@sanity/image-url": "^2.0.2",
     "next": "^16.0.8",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
-    "baseline-browser-mapping": "^2.9.6",
+    "baseline-browser-mapping": "^2.9.7",
     "eslint": "^9.39.1",
-    "eslint-config-next": "^16.0.8"
+    "eslint-config-next": "^16.0.10"
   }
 }
