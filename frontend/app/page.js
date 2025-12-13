@@ -42,9 +42,17 @@ const HomePage = async () => {
                 <Image
                   src={urlFor(artist.mainImage).width(400).url()}
                   alt={artist.artistName}
-                  fill
+                  // fill
                   sizes='25vw'
-                  style={{ objectFit: 'cover' }}
+                  // style={{ objectFit: 'contain' }}
+
+                  width={364}
+                  height={273} // use the image’s real aspect ratio if known
+                  style={{
+                    objectFit: 'contain',
+                    width: '100%',
+                    height: 'auto',
+                  }}
                 />
               </div>
               <div className={styles.artistLink}>{artist.artistName}</div>

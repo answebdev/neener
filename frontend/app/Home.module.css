@@ -1,52 +1,63 @@
 .mainContainer {
-  padding: 4rem;
+  padding: 6rem;
   font-family: Arial, sans-serif;
 }
 
 .artistContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
   /* justify-content: space-between; */
   justify-content: flex-start;
 }
 
 .artistCard {
   width: calc(33.333% - 1rem); /* 3 items per row, minus gap */
+  margin-bottom: 20px;
+  /* margin: 0 auto; */
 }
 
 .imageDiv {
   position: relative;
   width: 100%;
-  height: 220px;
-  aspect-ratio: 1 / 1;
+  /* height: 273px; */
+  /* aspect-ratio: 1 / 1; */
 }
 
 .artistLink {
   padding: 15px 0;
+  /* for text to scale smoothly with the viewport: */
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
 }
 
 /* ===== MEDIA QUERIES ===== */
+@media screen and (max-width: 980px) {
+  .artistCard {
+    width: calc(50% - 1rem); /* 2 per row */
+  }
+}
+
 @media (max-width: 768px) {
+  /* .mainContainer {
+    padding: 4rem;
+  } */
+
   .artistCard {
     width: 100%;
+    /* background-color: black; */
+  }
+
+  .artistLink {
+    text-align: center;
+    font-size: 16px;
   }
 }
 
 /* @media screen and (max-width: 980px) {
-  .imageDiv {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 768px) {
-  .imageDiv {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 320px) {
-  .imageDiv {
-    width: 100%;
-  }
 } */
