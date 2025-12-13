@@ -32,15 +32,19 @@
 
 /* ===== MEDIA QUERIES ===== */
 @media screen and (max-width: 980px) {
+  /* .mainContainer {
+    padding: 4rem;
+  } */
+
   .artistCard {
     width: calc(50% - 1rem); /* 2 per row */
   }
 }
 
 @media (max-width: 768px) {
-  /* .mainContainer {
+  .mainContainer {
     padding: 4rem;
-  } */
+  }
 
   .artistCard {
     width: 100%;
