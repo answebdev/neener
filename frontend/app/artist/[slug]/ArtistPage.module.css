@@ -21,9 +21,15 @@
   .container {
     padding: 2em;
   }
+
+  .backButton {
+    margin: 2em 0 4em 0;
+  }
+
   .desktopPlayer {
     display: none;
   }
+
   .mobilePlayer {
     display: block;
   }
