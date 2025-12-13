@@ -46,6 +46,7 @@
 .navLink:hover {
   /* border-bottom: 2px solid var(--navbarHoverBorderColor); */
   border-top: 2px solid var(--navbarHoverBorderColor);
+  padding-top: 4px;
 }
 
 /* ===== MEDIA QUERIES ===== */

@@ -96,6 +96,7 @@ const ArtistPage = async (props) => {
     `*[_type == "artist" && slug.current == $slug][0]{
       artistName,
       body,
+      heroImage,
       "authorName": author->name,
       "authorImage": author->image,
       "categories": categories[]->artistName
@@ -108,44 +109,61 @@ const ArtistPage = async (props) => {
   }
 
   return (
-    <article className={styles.container}>
-      <h1>{artist.artistName}</h1>
-
-      <br />
-
-      {artist.authorImage?.asset && (
-        <Image
-          src={urlFor(artist.authorImage).width(100).height(100).url()}
-          alt={`Photo of ${artist.authorName}`}
-          width={100}
-          height={100}
-          style={{ borderRadius: '50%' }}
-        />
+    // <article className={styles.container}>
+    <article>
+      {artist.heroImage?.asset && (
+        <div className={styles.hero}>
+          <Image
+            src={urlFor(artist.heroImage).width(1600).auto('format').url()}
+            alt={artist.artistName}
+            fill
+            priority
+            sizes='100vw'
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
       )}
 
-      {artist.categories?.length > 0 && (
-        <ul>
-          <strong>artisted in:</strong>
-          {artist.categories.map((category) => (
-            <li key={category}>{category}</li>
-          ))}
-        </ul>
-      )}
+      <div className={styles.container}>
+        <h1>{artist.artistName}</h1>
 
-      <PortableText value={artist.body} components={ptComponents} />
+        <br />
 
-      <p style={{ marginTop: '2em' }}>
-        <Link
-          href='/'
-          style={{
-            color: 'blue',
-            textDecoration: 'underline',
-            fontSize: '1.2rem',
-          }}
-        >
-          Back to Home
-        </Link>
-      </p>
+        {/* {artist.authorImage?.asset && (
+          <Image
+            src={urlFor(artist.authorImage).width(100).height(100).url()}
+            alt={`Photo of ${artist.authorName}`}
+            width={100}
+            height={100}
+            style={{ borderRadius: '50%' }}
+          />
+        )} */}
+
+        {artist.categories?.length > 0 && (
+          <ul>
+            <strong>artisted in:</strong>
+            {artist.categories.map((category) => (
+              <li key={category}>{category}</li>
+            ))}
+          </ul>
+        )}
+
+        <PortableText value={artist.body} components={ptComponents} />
+
+        {/* <p style={{ marginTop: '2em' }}> */}
+        <p className={styles.backButton}>
+          <Link
+            href='/'
+            style={{
+              color: 'blue',
+              textDecoration: 'underline',
+              fontSize: '1.2rem',
+            }}
+          >
+            Back to Home
+          </Link>
+        </p>
+      </div>
     </article>
   );
 };

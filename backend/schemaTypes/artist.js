@@ -34,6 +34,14 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'heroImage',
+      title: 'Hero Image (1215px x 680px)',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
