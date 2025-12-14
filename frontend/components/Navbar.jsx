@@ -9,6 +9,7 @@ const Navbar = () => {
           <li className={styles.navbarItem}>
             <Link className={styles.brandLink} href='/'>
               NX3
+              {/* NIHIL<sup>3</sup> */}
             </Link>
           </li>
         </div>

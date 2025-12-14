@@ -5,7 +5,8 @@
   background: var(--navbarColor);
   color: var(--navbarTextColor);
   font-family: var(--headerFontFamily);
-  padding: 8px;
+  /* padding: 8px; */
+  padding: 6px;
 }
 
 .navbar .ulElement {
@@ -33,7 +34,7 @@
 
 .brandLink {
   font-size: 22px;
-  font-weight: 700;
+  /* font-weight: 700; */
   letter-spacing: 0.5px;
 }
 
