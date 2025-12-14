@@ -68,26 +68,39 @@ export async function generateMetadata({ params }) {
 
   const artist = await client.fetch(
     `*[_type == "artist" && slug.current == $slug][0]{
-      artistName
+      artistName,
+      heroImage
     }`,
     { slug }
   );
 
+  // Hero image is used for the open graph tag.
+  // If an artist does not have a hero image,
+  // the default image (default.png) will be used as the open graph tag,
+  // which is located in '/images/og/default.png'.
+  const ogImage = artist?.heroImage
+    ? urlFor(artist.heroImage).width(1200).height(630).auto('format').url()
+    : '/images/og/default.png';
+
   return {
-    title: 'NX3 | ' + artist?.artistName || 'Artist Page',
+    // This ensures that Open Graph card images get a proper absolute URL:
+    metadataBase: new URL('https://nihilcollective.vercel.app/'),
+    // title: 'NX3 | ' + artist?.artistName || 'Artist Page',
+    title: artist?.artistName ? `NX3 | ${artist.artistName}` : 'NX3 | Artist',
     description: 'NX3 Label Website.',
     icons: {
       icon: '/favicon.ico',
     },
+    // The hero image will be used as the open graph image (see const ogImage above)
     openGraph: {
-      title: 'NX3',
-      description: 'NX3 Label Website Home Page.',
+      title: `NX3 | ${artist?.artistName}`,
+      description: `Discover music and content by ${artist?.artistName}.`,
       images: [
         {
-          url: '/og-image.png',
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: 'NX3 Label Website',
+          alt: artist?.artistName,
         },
       ],
     },
