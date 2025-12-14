@@ -183,7 +183,7 @@ const ArtistPage = async (props) => {
               fontSize: '1.2rem',
             }}
           >
-            Back to Home
+            Home
           </Link>
         </p>
       </div>
