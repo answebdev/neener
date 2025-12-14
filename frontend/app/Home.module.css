@@ -1,6 +1,7 @@
 .mainContainer {
   padding: 6rem;
-  font-family: Arial, sans-serif;
+  /* font-family: Arial, sans-serif; */
+  font-family: var(--font-geist-sans);
 }
 
 .artistContainer {
