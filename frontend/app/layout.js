@@ -18,6 +18,8 @@ const geistMono = Geist_Mono({
 
 // Site-wide metadata
 export const metadata = {
+  // This ensures that Open Graph card images get a proper absolute URL:
+  metadataBase: new URL('https://nihilcollective.vercel.app'),
   title: 'NX3',
   description: 'NX3 Label Website',
   icons: {

@@ -83,8 +83,6 @@ export async function generateMetadata({ params }) {
     : '/images/og/default.png';
 
   return {
-    // This ensures that Open Graph card images get a proper absolute URL:
-    metadataBase: new URL('https://nihilcollective.vercel.app/'),
     // title: 'NX3 | ' + artist?.artistName || 'Artist Page',
     title: artist?.artistName ? `NX3 | ${artist.artistName}` : 'NX3 | Artist',
     description: 'NX3 Label Website.',
