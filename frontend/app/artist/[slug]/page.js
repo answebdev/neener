@@ -79,6 +79,18 @@ export async function generateMetadata({ params }) {
     icons: {
       icon: '/favicon.ico',
     },
+    openGraph: {
+      title: 'NX3',
+      description: 'NX3 Label Website Home Page.',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'NX3 Label Website',
+        },
+      ],
+    },
   };
 }
 
