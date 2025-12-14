@@ -5,13 +5,9 @@ export default defineCliConfig({
     projectId: 'wfwums7k',
     dataset: 'production',
   },
-  /**
-   * Enable auto-updates for studios.
-   * Learn more at https://www.sanity.io/docs/cli#auto-updates
-   */
-  autoUpdates: true,
   deployment: {
-    appId: 'ps9q8gyxk9eoa14eeyz4l6s1',
+    autoUpdates: true,
+    appId: 'pwalltr3v5wgu93ti6trtfcp', // new appId from your deploy
   },
 })
 // Without an appId, Sanity will always auto-update Studio to the latest available version on their channel.
