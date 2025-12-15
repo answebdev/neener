@@ -134,7 +134,7 @@ const ArtistPage = async (props) => {
   return (
     // <article className={styles.container}>
     <article>
-      {artist.heroImage?.asset && (
+      {/* {artist.heroImage?.asset && (
         <div className={styles.hero}>
           <Image
             src={urlFor(artist.heroImage).width(1600).auto('format').url()}
@@ -145,10 +145,25 @@ const ArtistPage = async (props) => {
             style={{ objectFit: 'cover' }}
           />
         </div>
-      )}
+      )} */}
 
       <div className={styles.container}>
         <h1>{artist.artistName}</h1>
+
+        <br />
+
+        {artist.heroImage?.asset && (
+          <div className={styles.hero}>
+            <Image
+              src={urlFor(artist.heroImage).width(1600).auto('format').url()}
+              alt={artist.artistName}
+              fill
+              priority
+              sizes='100vw'
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+        )}
 
         <br />
 
