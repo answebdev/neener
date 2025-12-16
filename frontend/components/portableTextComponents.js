@@ -38,7 +38,7 @@ export const portableTextComponents = {
               width: '100%',
               height: '120px',
             }}
-            // loading='lazy'
+            loading='lazy'
             seamless
           />
           <iframe
@@ -49,7 +49,7 @@ export const portableTextComponents = {
               height: '120px',
               border: '0',
             }}
-            // loading='lazy'
+            loading='lazy'
             seamless
           />
         </div>
