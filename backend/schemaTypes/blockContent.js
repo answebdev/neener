@@ -51,6 +51,12 @@ export default defineType({
                 name: 'href',
                 type: 'url',
               },
+              {
+                title: 'Open in new tab',
+                name: 'blank',
+                type: 'boolean',
+                initialValue: true,
+              },
             ],
           },
         ],
@@ -65,6 +71,9 @@ export default defineType({
     }),
     defineArrayMember({
       type: 'iframeEmbed',
+    }),
+    defineArrayMember({
+      type: 'audioEmbed',
     }),
   ],
 })
