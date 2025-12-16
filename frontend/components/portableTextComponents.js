@@ -1,6 +1,5 @@
 import { urlFor } from '@/lib/sanityImageUrl';
 import styles from './portableTextComponents.module.css';
-import IframeWithPlaceholder from './IframeWithPlaceholder';
 
 // Define how Portable Text should render custom types like images
 export const portableTextComponents = {
@@ -56,18 +55,6 @@ export const portableTextComponents = {
         </div>
       );
     },
-
-    iframeEmbed: ({ value }) => {
-      // 'albumCoverUrl' should come from Sanity (optional)
-      return (
-        <IframeWithPlaceholder
-          src={value.url}
-          albumCoverUrl={value.albumCoverUrl} // optional: show album cover on smaller screens
-          height={120}
-        />
-      );
-    },
-
     audioEmbed: ({ value }) => (
       <div>
         {value.audioUrl && (
