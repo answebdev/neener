@@ -9,7 +9,17 @@ export default defineType({
       name: 'artistName',
       title: 'Artist Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
+
+    defineField({
+      name: 'sortName',
+      title: 'Sort Name',
+      type: 'string',
+      description: 'Used for alphabetical sorting (ignores leading "The") - use all lowercase',
+      validation: (Rule) => Rule.required(),
+    }),
+
     defineField({
       name: 'slug',
       title: 'Slug',
@@ -19,6 +29,7 @@ export default defineType({
         maxLength: 96,
       },
     }),
+
     defineField({
       name: 'author',
       title: 'Author',
@@ -29,6 +40,7 @@ export default defineType({
       name: 'mainImage',
       title: 'Main Image (1092px x 819px)',
       type: 'image',
+      description: 'Used for home page',
       options: {
         hotspot: true,
       },
@@ -37,6 +49,7 @@ export default defineType({
       name: 'heroImage',
       title: 'Hero Image (1215px x 680px)',
       type: 'image',
+      description: 'Used for individual artist page',
       options: {
         hotspot: true,
       },

@@ -68,6 +68,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  line-height: normal;
+}
+
 a {
   color: inherit;
   text-decoration: none;

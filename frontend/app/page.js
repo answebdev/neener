@@ -27,12 +27,21 @@ export const generateMetadata = async () => {
 };
 
 const HomePage = async () => {
+  // Original GROQ query:
+  // const artists = await client.fetch(
+  //   `*[_type == "artist" && defined(slug.current)] | order(_createdAt desc){
+  //     artistName,
+  //     mainImage,
+  //     slug
+  //   }`
+  // );
   const artists = await client.fetch(
-    `*[_type == "artist" && defined(slug.current)] | order(_createdAt desc){
-      artistName,
-      mainImage,
-      slug
-    }`
+    `*[_type == "artist" && defined(slug.current)]
+   | order(sortName asc){
+     artistName,
+     mainImage,
+     slug
+   }`
   );
 
   return (
