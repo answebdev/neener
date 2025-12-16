@@ -32,7 +32,7 @@ const ptComponents = {
     iframeEmbed: ({ value }) => {
       return (
         // Player Not Centered:
-        <div style={{ maxWidth: '700px', margin: '2em 0', width: '100%' }}>
+        <div style={{ maxWidth: '700px', margin: '1em 0', width: '100%' }}>
           {/* // Player Centered: */}
           {/* <div style={{ maxWidth: '700px', margin: '2em auto', width: '100%' }}> */}
           <iframe
