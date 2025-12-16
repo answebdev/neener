@@ -26,26 +26,35 @@ export const portableTextComponents = {
     },
     iframeEmbed: ({ value }) => {
       return (
-        <div className={styles.iframeWrapper}>
-          {/* Album cover placeholder (mobile only) */}
-          {value.albumCoverUrl && (
-            <img
-              src={value.albumCoverUrl}
-              alt='Album cover'
-              className={styles.albumCover}
-            />
-          )}
-
+        // Player Not Centered:
+        <div style={{ maxWidth: '700px', margin: '2em 0', width: '100%' }}>
+          {/* // Player Centered: */}
+          {/* <div style={{ maxWidth: '700px', margin: '2em auto', width: '100%' }}> */}
           <iframe
+            className={styles.desktopPlayer}
             src={value.url}
-            className={styles.player}
-            style={{ border: 0 }}
+            style={{
+              border: 0,
+              width: '100%',
+              height: '120px',
+            }}
+            loading='lazy'
+            seamless
+          />
+          <iframe
+            className={styles.mobilePlayer}
+            src={value.url.replace('size=large', 'size=medium')}
+            style={{
+              width: '100%',
+              height: '120px',
+              border: '0',
+            }}
+            loading='lazy'
             seamless
           />
         </div>
       );
     },
-
     audioEmbed: ({ value }) => (
       <div>
         {value.audioUrl && (
