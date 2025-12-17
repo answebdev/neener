@@ -22,6 +22,56 @@
   background-size: cover; */
 }
 
+/* RELEASE GRID */
+.releaseGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* 3 per row, edges align with container */
+.releaseCard {
+  flex: 0 0 calc((100% - 2rem) / 3);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Images fill their column */
+.releaseCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.releaseLinks {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0;
+  margin-top: 0.5rem;
+  list-style: none;
+
+  margin-top: 15px;
+}
+
+/* Make links look like links */
+.releaseLinks a {
+  color: blue;
+  text-decoration: underline;
+  /* font-size: 0.85rem; */
+  font-size: 1rem;
+  text-transform: uppercase;
+
+  /* Responsive font sizing */
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+}
+
+/* .releaseLinks a:hover {
+  text-decoration: none;
+} */
+
 .mobilePlayer {
   display: none;
 }
@@ -30,13 +80,22 @@
   margin: 2em 0;
 }
 
+/* Tablet: 2 per row */
+@media screen and (max-width: 900px) {
+  .releaseCard {
+    flex: 0 0 calc((100% - 1rem) / 2);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .releaseCard {
+    flex: 0 0 100%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .container {
     padding: 2em;
-  }
-
-  .backButton {
-    margin: 2em 0 4em 0;
   }
 
   .desktopPlayer {
@@ -45,5 +104,13 @@
 
   .mobilePlayer {
     display: block;
+  }
+
+  .releaseCard {
+    flex: 0 0 100%; /* 1 per row */
+  }
+
+  .backButton {
+    margin: 2em 0 4em 0;
   }
 }

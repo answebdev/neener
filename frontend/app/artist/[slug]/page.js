@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { urlFor } from '../../../lib/sanityImageUrl';
 import styles from './ArtistPage.module.css';
 
-// Define how Portable Text should render custom types like images
+// Define how Portable Text should render custom types like images, embedded iframes, etc.
 const ptComponents = {
   types: {
     image: ({ value }) => {
@@ -31,10 +31,7 @@ const ptComponents = {
     },
     iframeEmbed: ({ value }) => {
       return (
-        // Player Not Centered:
         <div style={{ maxWidth: '700px', margin: '1em 0', width: '100%' }}>
-          {/* // Player Centered: */}
-          {/* <div style={{ maxWidth: '700px', margin: '2em auto', width: '100%' }}> */}
           <iframe
             className={styles.desktopPlayer}
             src={value.url}
@@ -162,6 +159,7 @@ const ArtistPage = async (props) => {
 
   const artist = await client.fetch(
     `*[_type == "artist" && slug.current == $slug][0]{
+    _id,
     artistName,
     body[]{
       ...,
@@ -172,6 +170,14 @@ const ArtistPage = async (props) => {
       }
     },
     heroImage,
+    "releases": *[_type == "release" && artist._ref == ^._id]
+      | order(releaseYear desc){
+        _id,
+        releaseTitle,
+        releaseYear,
+        releaseCover,
+        releaseLinks
+      },
     "authorName": author->name,
     "authorImage": author->image,
     "categories": categories[]->artistName
@@ -240,7 +246,62 @@ const ArtistPage = async (props) => {
 
         <PortableText value={artist.body} components={ptComponents} />
 
-        {/* <p style={{ marginTop: '2em' }}> */}
+        <br />
+
+        {artist.releases?.length > 0 && (
+          <>
+            <h2>Releases</h2>
+
+            <div className={styles.releaseGrid}>
+              {artist.releases.map((release) => (
+                <div key={release._id} className={styles.releaseCard}>
+                  {release.releaseCover?.asset && (
+                    <Image
+                      src={urlFor(release.releaseCover)
+                        .width(1200)
+                        .height(1200)
+                        .auto('format')
+                        .quality(80) // reduces the file size while keeping almost the same visual quality
+                        .url()}
+                      alt={release.releaseTitle}
+                      width={1200}
+                      height={1200}
+                      sizes='
+                        (max-width: 600px) 90vw,
+                        (max-width: 900px) 45vw,
+                        30vw
+                      '
+                    />
+                  )}
+
+                  {/* <h3>{release.releaseTitle}</h3>
+                  <p>{release.releaseYear}</p> */}
+
+                  {release.releaseLinks?.length > 0 && (
+                    <ul className={styles.releaseLinks}>
+                      {release.releaseLinks.map((link, index) => (
+                        <li key={index}>
+                          <a
+                            href={link.url}
+                            target={link.newTab ? '_blank' : '_self'}
+                            rel={
+                              link.newTab ? 'noopener noreferrer' : undefined
+                            }
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        <br />
+
         <p className={styles.backButton}>
           <Link
             href='/'

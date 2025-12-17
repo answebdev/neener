@@ -30,12 +30,12 @@ export default defineType({
       },
     }),
 
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
+    // defineField({
+    //   name: 'author',
+    //   title: 'Author',
+    //   type: 'reference',
+    //   to: {type: 'author'},
+    // }),
     defineField({
       name: 'mainImage',
       title: 'Main Image (1092px x 819px)',
@@ -55,10 +55,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
+      name: 'releases',
+      title: 'Releases',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of: [{type: 'reference', to: {type: 'release'}}],
     }),
     defineField({
       name: 'publishedAt',
