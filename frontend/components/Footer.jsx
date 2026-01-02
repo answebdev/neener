@@ -1,4 +1,4 @@
-'use client';
+'use client'; // treat this file as a Client Component
 
 import { useState, useEffect } from 'react';
 import styles from './Footer.module.css';
