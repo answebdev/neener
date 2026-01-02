@@ -1,13 +1,27 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import styles from './Footer.module.css';
 
-const Footer = () => (
-  <div className='footer'>
-    <div className={styles.footer}>
-      <span className={styles.footerText}>
-        &copy; Copyright {new Date().getFullYear()} NX3
-      </span>
+const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
+  return (
+    <div className='footer'>
+      <div className={styles.footer}>
+        <span className={styles.footerText}>
+          &copy; Copyright {currentYear} NX3
+        </span>
+        {/* <span className={styles.footerText}>
+          &copy; Copyright 2025-{currentYear} NX3
+        </span> */}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Footer;
