@@ -9,17 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@portabletext/react": "^6.0.2",
-    "@sanity/client": "^7.16.0",
+    "@portabletext/react": "^6.0.3",
+    "@sanity/client": "^7.20.0",
     "@sanity/image-url": "^2.0.3",
-    "next": "^16.1.4",
+    "next": "^16.2.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.4",
-    "baseline-browser-mapping": "^2.10.0",
-    "eslint": "^10.0.2",
-    "eslint-config-next": "^16.1.6"
+    "@eslint/eslintrc": "^3.3.5",
+    "baseline-browser-mapping": "^2.10.10",
+    "eslint": "^10.1.0",
+    "eslint-config-next": "^16.2.1"
   }
 }
