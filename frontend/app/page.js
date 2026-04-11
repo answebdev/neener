@@ -41,14 +41,14 @@ const HomePage = async () => {
      artistName,
      mainImage,
      slug
-   }`
+   }`,
   );
 
   return (
     <main className={styles.mainContainer}>
       <h1 style={{ marginBottom: '1.5rem' }}>Artists</h1>
       <div className={styles.artistContainer}>
-        {artists.map((artist) => (
+        {artists.map((artist, index) => (
           <div key={artist.slug.current} className={styles.artistCard}>
             <Link
               href={`/artist/${artist.slug.current}`}
@@ -61,6 +61,7 @@ const HomePage = async () => {
             >
               <div className={styles.imageDiv}>
                 <Image
+                  priority={index < 3} // tells browser to download first 3 images (top row) immediately and rest of images will load lazily
                   src={urlFor(artist.mainImage).width(400).url()}
                   alt={artist.artistName}
                   // fill
